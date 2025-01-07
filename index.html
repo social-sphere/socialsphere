@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .gallery img {
+      max-width: 200px;
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Gallery</h1>
+  <div class="gallery" id="gallery"></div>
+
+  <script>
+    // Automatically load all images from the 'images' folder
+    const imageFolder = './images/';
+    const imageList = [
+      'image1.jpg',
+      'image2.jpg',
+      'image3.jpg'
+    ];
+
+    const galleryDiv = document.getElementById('gallery');
+
+    imageList.forEach(image => {
+      const imgElement = document.createElement('img');
+      imgElement.src = imageFolder + image;
+      imgElement.alt = image;
+      galleryDiv.appendChild(imgElement);
+    });
+  </script>
+</body>
+</html>
